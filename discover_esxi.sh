@@ -19,4 +19,3 @@ numCpuThreads=$(vim-cmd hostsvc/hostsummary |grep numCpuThreads |awk '{print $3}
 storage=$(vim-cmd hostsvc/storage/fs_info |grep -A 1 vm-local |tail -n 1 |awk '{print $3}' | sed 's/[,]//g' |awk '{print $1/(1024*1024*1024)}')
 
 echo "${host},${ipaddress},${vendor},${model},${version},${build},${cpuModel},${cpuMhz},${CpuCores},${numCpuThreads},${memorySize},${storage}"
-
